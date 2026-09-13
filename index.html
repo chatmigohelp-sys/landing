@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chat With Me</title>
+
+<style>
+  /* ============================================================
+     ⚙️  EASY SETTINGS — change these three things any time
+     ============================================================ */
+  :root{
+    /* 1) Profile picture — paste any image URL between the quotes */
+    --profile-image: url("https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=faces");
+  }
+  /* 2) Telegram link is set on the <a id="tg-btn"> tag near the bottom of this file.
+     3) Name / tagline / description text is in the <body> section below. */
+
+  /* ============================================================ */
+
+  * { box-sizing: border-box; }
+
+  html, body{
+    height: 100%;
+    margin: 0;
+  }
+
+  body{
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: radial-gradient(circle at 30% 20%, #3a2a52 0%, #241a37 45%, #17111f 100%);
+    color: #f3eef7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 24px;
+  }
+
+  .card{
+    width: 100%;
+    max-width: 360px;
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    backdrop-filter: blur(6px);
+    border-radius: 28px;
+    padding: 40px 28px 32px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+  }
+
+  .avatar-ring{
+    width: 132px;
+    height: 132px;
+    margin: 0 auto 22px;
+    border-radius: 50%;
+    padding: 4px;
+    background: conic-gradient(from 180deg, #caa8ff, #7fd9d0, #caa8ff);
+  }
+
+  .avatar{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-image: var(--profile-image);
+    background-size: cover;
+    background-position: center;
+    border: 3px solid #1c1428;
+  }
+
+  .status{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    letter-spacing: 0.02em;
+    color: #a7f3c4;
+    background: rgba(74, 222, 128, 0.1);
+    padding: 5px 12px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+
+  .status span.dot{
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 6px #4ade80;
+  }
+
+  h1{
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0 0 6px;
+    color: #ffffff;
+  }
+
+  .tagline{
+    font-size: 14.5px;
+    color: #cdbfe0;
+    margin: 0 0 18px;
+    line-height: 1.5;
+  }
+
+  .desc{
+    font-size: 13.5px;
+    color: #b3a4c7;
+    line-height: 1.6;
+    margin: 0 0 28px;
+  }
+
+  .tg-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 14px 18px;
+    background: #29a9eb;
+    color: #ffffff;
+    font-size: 15.5px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 14px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    box-shadow: 0 10px 24px rgba(41, 169, 235, 0.35);
+  }
+
+  .tg-btn:hover{
+    background: #1c98d8;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(41, 169, 235, 0.45);
+  }
+
+  .tg-btn:active{
+    transform: translateY(0);
+  }
+
+  .tg-btn svg{
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  .footnote{
+    margin-top: 16px;
+    font-size: 11.5px;
+    color: #7c6d90;
+  }
+
+  @media (max-width: 380px){
+    .card{ padding: 32px 20px 26px; }
+    .avatar-ring{ width: 112px; height: 112px; }
+    h1{ font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="card">
+
+    <div class="avatar-ring">
+      <div class="avatar"></div>
+    </div>
+
+    <div class="status"><span class="dot"></span>Online now</div>
+
+    <!-- ✏️ Change name here -->
+    <h1>Priya Sharma</h1>
+
+    <!-- ✏️ Change tagline here -->
+    <p class="tagline">Your go-to chat companion, anytime you need to talk.</p>
+
+    <!-- ✏️ Change description here -->
+    <p class="desc">Friendly, private, and always available conversations — tap below to start chatting on Telegram.</p>
+
+    <!-- ✏️ CHANGE THE TELEGRAM LINK HERE (href) -->
+    <a id="tg-btn" class="tg-btn" href="https://t.me/your_username" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.036 15.803l-.373 5.259c.534 0 .765-.23 1.045-.505l2.507-2.395 5.196 3.804c.953.525 1.63.249 1.888-.881L22.94 3.5c.322-1.394-.503-1.94-1.43-1.6L1.114 9.607c-1.36.53-1.343 1.288-.232 1.632l5.09 1.587L18.2 5.14c.554-.36 1.058-.16.643.2z"/></svg>
+      Message on Telegram
+    </a>
+
+    <p class="footnote">Response time: usually within a few minutes</p>
+
+  </div>
+
+</body>
+</html>
